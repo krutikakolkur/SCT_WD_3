@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QUIZΛ — Neural Challenge</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- INTRO SCREEN -->
+  <section id="intro" class="screen active">
+    <div class="intro-inner">
+      <div class="logo-wrap">
+        <div class="logo-ring ring1"></div>
+        <div class="logo-ring ring2"></div>
+        <div class="logo-ring ring3"></div>
+        <h1 class="logo-text">QUIZΛ</h1>
+      </div>
+      <p class="tagline">Test your <span class="highlight">intelligence</span><br/>across multiple dimensions</p>
+      <div class="stats-row">
+        <div class="stat"><span class="stat-num">15</span><span class="stat-label">Questions</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Types</span></div>
+        <div class="stat-div"></div>
+        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Glory</span></div>
+      </div>
+      <button class="btn-primary" id="startBtn">
+        <span class="btn-text">INITIATE</span>
+        <span class="btn-glow"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="quiz" class="screen">
+    <!-- HUD -->
+    <div class="hud">
+      <div class="hud-left">
+        <span class="q-counter" id="qCounter">01 / 15</span>
+      </div>
+      <div class="hud-center">
+        <div class="timer-wrap">
+          <svg class="timer-ring" viewBox="0 0 60 60">
+            <circle cx="30" cy="30" r="26" class="timer-track"/>
+            <circle cx="30" cy="30" r="26" class="timer-fill" id="timerCircle"/>
+          </svg>
+          <span class="timer-num" id="timerNum">20</span>
+        </div>
+      </div>
+      <div class="hud-right">
+        <span class="score-live">⚡ <span id="liveScore">0</span></span>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+      <div class="progress-glow" id="progressGlow"></div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="q-card" id="qCard">
+      <div class="q-type-badge" id="qTypeBadge">SINGLE SELECT</div>
+      <div class="q-number-bg" id="qNumBg">01</div>
+      <p class="q-text" id="qText">Loading question...</p>
+      <div class="options-grid" id="optionsGrid"></div>
+
+      <!-- Fill in blank input -->
+      <div class="fill-wrap hidden" id="fillWrap">
+        <div class="fill-input-wrap">
+          <input type="text" id="fillInput" class="fill-input" placeholder="Type your answer..." autocomplete="off"/>
+          <span class="fill-cursor"></span>
+        </div>
+      </div>
+
+      <button class="btn-next hidden" id="nextBtn">
+        <span>NEXT</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Feedback Flash -->
+    <div class="feedback-flash" id="feedbackFlash">
+      <span id="feedbackText"></span>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section id="results" class="screen">
+    <div class="results-inner">
+      <div class="result-orbit">
+        <div class="orbit-ring o1"></div>
+        <div class="orbit-ring o2"></div>
+        <div class="score-circle">
+          <span class="final-score" id="finalScore">0</span>
+          <span class="final-total" id="finalTotal">/15</span>
+        </div>
+      </div>
+      <h2 class="result-title" id="resultTitle">CALCULATING...</h2>
+      <p class="result-sub" id="resultSub"></p>
+
+      <div class="breakdown-row" id="breakdownRow"></div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" id="reviewBtn">REVIEW ANSWERS</button>
+        <button class="btn-primary" id="retryBtn">
+          <span class="btn-text">PLAY AGAIN</span>
+          <span class="btn-glow"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEW SCREEN -->
+  <section id="review" class="screen">
+    <div class="review-inner">
+      <div class="review-header">
+        <h2>ANSWER REVIEW</h2>
+        <button class="btn-back" id="backBtn">← BACK</button>
+      </div>
+      <div class="review-list" id="reviewList"></div>
+    </div>
+  </section>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
