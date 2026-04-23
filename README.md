@@ -1,4 +1,4 @@
-# QUIZΛ — Neural Challenge
+# QUIZA — Neural Challenge
 
 A sleek, interactive web-based quiz application built with vanilla HTML, CSS, and JavaScript. QUIZΛ challenges users across multiple question types with a polished, futuristic UI featuring animated particles, a live timer, and a detailed score breakdown.
 
@@ -79,10 +79,3 @@ Or simply double-click `index.html` to launch it locally.
 5. Click **REVIEW ANSWERS** to see a breakdown, or **PLAY AGAIN** to restart
 
 
-
-
-
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
